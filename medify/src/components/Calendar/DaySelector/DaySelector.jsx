@@ -1,34 +1,34 @@
-import { useEffect,useState } from "react";
-import {Swiper,SwiperSlide} from "swiper/react"
-import "swiper/css"
-import {Box,Button,Divider,Stack,Typography} from "@mui/material";
+import { useEffect, useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import { Box, Button, Divider, Stack, Typography } from '@mui/material';
 import styles from './DaySelector.module.css'
 import { format, add, isEqual, startOfDay } from 'date-fns'
 import { SlideNextButton, SlidePrevButton } from './SliderButtons';
 
-export default function DaySelector({selectDate,setSelectedDate,totalSlots}){
+export default function DaySelector({ selectedDate, setSelectedDate, totalSlots }) {
 
-    const date= startOfDay(new Date());
-    const dateItems=[]
+    const date = startOfDay(new Date())
+    const dateItems = []
 
-    for(let i=0;i<7;i++){
-        dateItems.push(add(date,{days:i}));
+    for (let i = 0; i < 7; i++) {
+        dateItems.push(add(date, { days: i }))
     }
 
-    const customDateFormat= day=>{
-        if(isEqual(date,day)){
-            return "Today";
+    const customDateFormat = day => {
+        if (isEqual(date, day)) {
+            return 'Today'
         }
-        else if(isEqual(date, add(day,{days:-1}))){
-            return "Tomorrow";
+        else if (isEqual(date, add(day, { days: -1 }))) {
+            return 'Tomorrow'
         }
-        else{
-            return format(day, 'E,d LLL');
+        else {
+            return format(day, 'E, d LLL')
         }
     }
 
-    const handleClick=(day)=>{
-        setSelectedDate(day);
+    const handleClick = (day) => {
+        setSelectedDate(day)
     }
 
     return (
@@ -108,8 +108,4 @@ export default function DaySelector({selectDate,setSelectedDate,totalSlots}){
 
     )
 }
-
-
-
-
 

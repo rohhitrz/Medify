@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Stack, Typography, Divider, Chip } from "@mui/material";
+import { Chip, Stack, Typography, Divider } from "@mui/material";
 
 export default function TimeSlotPicker({
   availableSlots,
@@ -58,7 +58,6 @@ export default function TimeSlotPicker({
           ))}
         </Stack>
       )}
-
       {availableSlots.afternoon.length > 0 && (
         <Stack
           direction="row"
@@ -81,43 +80,28 @@ export default function TimeSlotPicker({
           ))}
         </Stack>
       )}
-
-      {availableSlots.afternoon.length >0 && (
+      {availableSlots.afternoon.length > 0 && (
         <Stack
-        direction="row"
-        alignItems="center"
-        px={{xs:0, md:6}}
-        flexWrap={"wrap"}
+          direction="row"
+          alignItems="center"
+          px={{ xs: 0, md: 6 }}
+          flexWrap={"wrap"}
         >
-
-            <Typography
-             width={{ xs: 1, md: "15%" }}
-             fontSize={{ xs: 14, md: 16 }}>
-                Evening
-
-            </Typography>
-
-            {availableSlots.evening.map((slot)=>(
-                <CustomChip
-                key={slot}
-                label={slot}
-                handleClick={()=>handleClick(slot)}
-                
-                
-                />
-            ))}
-
-
-
-
-
-
+          <Typography
+            width={{ xs: 1, md: "15%" }}
+            fontSize={{ xs: 14, md: 16 }}
+          >
+            Evening
+          </Typography>
+          {availableSlots.evening.map((slot) => (
+            <CustomChip
+              key={slot}
+              label={slot}
+              handleClick={() => handleClick(slot)}
+            />
+          ))}
         </Stack>
       )}
-
-
-
-
     </Stack>
   );
 }
