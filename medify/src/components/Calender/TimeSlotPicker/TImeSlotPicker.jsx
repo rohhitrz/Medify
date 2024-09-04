@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { chip, Stack, Typography, Divider, Chip } from "@mui/material";
+import { Stack, Typography, Divider, Chip } from "@mui/material";
 
 export default function TimeSlotPicker({
   availableSlots,
@@ -59,7 +59,7 @@ export default function TimeSlotPicker({
         </Stack>
       )}
 
-      {availableSlots.afternoon.langth > 0 && (
+      {availableSlots.afternoon.length > 0 && (
         <Stack
           direction="row"
           alignItems="center"
